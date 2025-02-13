@@ -7,12 +7,14 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_BACKEND_URL
+
 
   useEffect(() => {
     const fetchUserData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/user/profile", {
+        const response = await axios.get(`${API_URL}/api/v1/user/profile`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },

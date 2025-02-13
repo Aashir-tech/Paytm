@@ -1,7 +1,8 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 // mongoose.connect("mongodb+srv://aashirharis6:aashir7834@cluster.7paoqdf.mongodb.net/Paytm-Clone");
-const MONGO_URI = 'mongodb+srv://aashirharis6:YV7KwxiMU8pnhXNn@cluster.7paoqdf.mongodb.net/Paytm-Clone'
+const MONGO_URI = process.env.MONGO_URI
 
 const connectDB = async () => {
     try {

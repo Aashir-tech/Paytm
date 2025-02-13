@@ -33,16 +33,17 @@ export const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [value, setValue] = useState("");
   const [filter, setFilter] = useState("");
+  const API_URL = import.meta.env.VITE_BACKEND_URL
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
+      .get(`${API_URL}/api/v1/user/bulk?filter=` + filter)
       .then((response) => {
         setUsers(response.data.user);
       });
 
     axios
-      .get("http://localhost:3000/api/v1/account/balance", {
+      .get(`${API_URL}/api/v1/account/balance`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },

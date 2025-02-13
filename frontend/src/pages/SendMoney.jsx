@@ -6,6 +6,8 @@ import axios from "axios"
 import { ArrowRight, DollarSign } from "lucide-react"
 
 export const SendMoney = () => {
+  const API_URL = import.meta.env.VITE_BACKEND_URL
+
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const id = searchParams.get("id")
@@ -18,7 +20,7 @@ export const SendMoney = () => {
     setIsLoading(true)
     try {
       await axios.post(
-        "http://localhost:3000/api/v1/account/transfer",
+        `${API_URL}/api/v1/account/transfer`,
         {
           to: id,
           amount,

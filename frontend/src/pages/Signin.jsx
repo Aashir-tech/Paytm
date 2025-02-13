@@ -7,7 +7,11 @@ import { useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router-dom" 
 
+
+
+
 export const Signin = () => {
+  const API_URL = import.meta.env.VITE_BACKEND_URL
   const navigate = useNavigate()
   const [username,setUsername] = useState("");
   const [password , setPassword] = useState("");
@@ -30,7 +34,7 @@ export const Signin = () => {
             }} label={"Password"} placeholder={"123456"} />
             <div className='pt-4'>
               <Button onClick={async () => {
-                const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
+                const response = await axios.post(`${API_URL}/api/v1/user/signin`, {
                   username,
                   password
                 } , {

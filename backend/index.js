@@ -3,6 +3,8 @@ const cors = require("cors")
 const app = express()
 const {connectDB} = require('./db.js')
 
+require('dotenv').config()
+
 connectDB();
 
 //Always keep it abpve your main router
@@ -13,4 +15,8 @@ const mainRouter = require('./routes/index.js')
 
 app.use("/api/v1" , mainRouter);
 
-app.listen(3000);
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT , () => {
+    console.log(`Server running on ${PORT}`)
+});

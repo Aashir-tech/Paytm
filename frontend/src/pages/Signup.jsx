@@ -17,6 +17,8 @@ export const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber , setPhoneNumber] = useState("");
+  
+  const API_URL = import.meta.env.VITE_BACKEND_URL
 
   return (
     <div className='bg-slate-300 h-screen flex justify-center'>
@@ -40,7 +42,7 @@ export const Signup = () => {
               setPhoneNumber(e.target.value)
             }} label={"Phone Number"} placeholder={"+91 9936000032"} />
             <Button onClick={async () => {
-              const response = await axios.post("http://localhost:3000/api/v1/user/signup" , {
+              const response = await axios.post(`${API_URL}/api/v1/user/signup` , {
                 username,
                 firstName,
                 lastName,
