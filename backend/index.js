@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors")
 const app = express()
+const {connectDB} = require('./db.js')
+
+connectDB();
 
 //Always keep it abpve your main router
 app.use(cors())

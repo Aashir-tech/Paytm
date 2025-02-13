@@ -13,7 +13,8 @@ const signupSchema = zod.object({
     username : zod.string().email(),
     password: zod.string(),
     firstName : zod.string(),
-    lastName : zod.string()
+    lastName : zod.string(),
+    phoneNumber : zod.number()
 })
 
 
@@ -27,15 +28,17 @@ router.post('/signup' , async (req,res) => {
         })
     }
 
-    // const user = await User.findOne({
-    //     username: body.username
-    // })
+    const user = await User.findOne({
+        username: body.username
+    })
 
-    // if(user._id) {
-    //     return res.status(411).json({
-    //         message: "Email already taken / Incorrect inputs"
-    //     })
-    // }
+    console.log(user);
+
+    if(user) {
+        return res.status(411).json({
+            message: "Email already taken / Incorrect inputs"
+        })
+    }
 
     const dbUser = await User.create(body);
 
@@ -55,7 +58,8 @@ router.post('/signup' , async (req,res) => {
 
     res.json({
         message: "User created successfully",
-        token: token
+        token: token,
+        userId : userId
     })
 })
 
@@ -91,10 +95,11 @@ router.post('/signin' , async (req,res) => {
             userId
         }, JWT_SECRET)
 
-        console.log(token)
+        // console.log(token)
 
         res.json({
-            token : token
+            token : token,
+            userId: userId
         })
         return
     }
@@ -103,6 +108,32 @@ router.post('/signin' , async (req,res) => {
         message: "Error while loggin in"
     })
     
+})
+
+router.get('/profile' , authMiddleware ,async (req,res) => {
+    try {
+        console.log("User " , req.userId);
+        const user = await User.findById(req.userId).select("-password");
+
+        if(!user) {
+            return res.status(404).json({message : "User not found"})
+        }
+        console.log("User " , user);
+
+        const account = await Account.findOne({userId : req.userId});
+
+        console.log("Account " , account);
+
+        res.json({
+            username : user.username,
+            firstName : user.firstName,
+            lastName : user.lastName,
+            balance : account ? account.balance : 0,
+            accountId : account ? account._id : 0
+        })
+    } catch (error) {
+        res.status(500).json({message : "Internal Server Error"})
+    }
 })
 
 
