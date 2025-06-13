@@ -14,14 +14,17 @@ const signupSchema = zod.object({
     password: zod.string(),
     firstName : zod.string(),
     lastName : zod.string(),
-    phoneNumber : zod.number()
+    phoneNumber : zod.string()
 })
 
 
 
 router.post('/signup' , async (req,res) => {
     const body = req.body;
+    console.log("Body" , body);
     const {success} = signupSchema.safeParse(body);
+    console.log("Request reached here");
+    console.log("Success " , success);
     if(!success) {
         return res.status(411).json({
             message: "Email already taken / Incorrect inputs"
