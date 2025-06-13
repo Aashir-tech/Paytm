@@ -8,7 +8,7 @@ app.use(express.json());
 //Always keep it abpve your main router
 app.use(
   cors({
-    origin: "https://walletgo.vercel.app",
+    origin: ["https://walletgo.vercel.app" , "http://localhost:5173"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
