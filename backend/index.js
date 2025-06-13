@@ -3,9 +3,7 @@ const cors = require("cors");
 const app = express();
 const { connectDB } = require("./db.js");
 
-require("dotenv").config();
-
-connectDB();
+app.use(express.json());
 
 //Always keep it abpve your main router
 app.use(
@@ -13,17 +11,21 @@ app.use(
     origin: "https://walletgo.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-app.get("/" , (req , res) => {
-    return res.json({
-        message : "Server is working in good condition"
-    })
-})
+require("dotenv").config();
 
-app.use(express.json());
+connectDB();
+
+app.get("/", (req, res) => {
+  return res.json({
+    message: "Server is working in good condition",
+  });
+});
+
+
 
 const mainRouter = require("./routes/index.js");
 
