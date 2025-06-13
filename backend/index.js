@@ -9,7 +9,9 @@ connectDB();
 
 //Always keep it abpve your main router
 app.use(cors({
-    origin : 'https://walletgo.vercel.app'
+    origin : 'https://walletgo.vercel.app',
+    credentials : true,
+    methods : 'GET,HEAD,POST,PUT,PATCH,DELETE'
 }))
 
 app.use(express.json());
