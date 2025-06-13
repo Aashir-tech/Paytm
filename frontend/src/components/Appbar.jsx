@@ -1,7 +1,7 @@
 // export const Appbar = () => {
 //     return <div className="shadow h-14 flex justify-between">
 //         <div className="flex flex-col justify-center font-size  h-full ml-4">
-//             Paytm App
+//             Wallet Go
 //         </div>
 //         <div className="flex">
 //             <div className="flex flex-col justify-center h-full mr-4">
@@ -21,7 +21,7 @@
 //     return (
 //         <div className="shadow-md h-16 flex justify-between items-center px-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
 //             <div className="text-2xl font-bold tracking-wide">
-//                 Paytm App
+//                 Wallet Go
 //             </div>
 //             <div className="flex items-center space-x-4">
 //                 <div className="text-lg font-medium">
@@ -46,7 +46,7 @@ export const Appbar = ({ isDarkMode, toggleTheme }) => {
     <div className="shadow-lg h-20 flex justify-between items-center px-6 bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-gray-800 dark:to-gray-900 text-white">
       <div className="text-2xl font-bold tracking-wide">
         <Link to = "/">
-        Paytm App
+        Wallet Go
         </Link>
         
         </div>

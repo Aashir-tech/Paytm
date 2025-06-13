@@ -1,6 +1,6 @@
-# Paytm Clone (MERN Stack) 💰  
+# Wallet Go - A Seamless Pay (MERN Stack) 💰  
 
-A simple and interactive **Paytm Clone** built with **MERN Stack**, allowing users to sign up, log in, check balances, and send money securely to other users.  
+A simple and interactive **Wallet** built with **MERN Stack**, allowing users to sign up, log in, check balances, and send money securely to other users.  
 
 ## Features 🚀  
 - **User Authentication** – Secure signup & login using **JWT & Zod**.  
@@ -15,7 +15,7 @@ A simple and interactive **Paytm Clone** built with **MERN Stack**, allowing use
 ## How to Run Locally  
 ```sh
 # Clone the repository
-git clone https://github.com/Aashir-tech/Paytm.git
+git clone https://github.com/Aashir-tech/walletgo.git
 
 # Backend Setup
 cd backend

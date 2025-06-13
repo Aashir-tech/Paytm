@@ -18,7 +18,7 @@ const Home = () => {
       {/* Navbar */}
       <nav className="bg-blue-600 dark:bg-gray-800 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold">PaytmClone</div>
+          <div className="text-2xl font-bold">Wallet Go</div>
           <ul className="flex items-center space-x-4">
             <li>
               <a href="#" className="hover:text-blue-200">
@@ -68,7 +68,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="bg-blue-500 dark:bg-gray-700 text-white py-20">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">Welcome to PaytmClone</h1>
+          <h1 className="text-5xl font-bold mb-4">Welcome to Wallet Go</h1>
           <p className="text-xl mb-8">Your One-Stop Solution for Digital Payments</p>
           <div className="flex justify-center space-x-4">
             <Link to="/signup" className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300 shadow-lg">
@@ -113,7 +113,7 @@ const Home = () => {
             <circle cx="50" cy="50" r="45" fill="#00BAF2" />
             <path d="M30 50 L70 50 M50 30 L50 70" stroke="white" strokeWidth="8" />
           </svg>
-          <h2 className="text-3xl font-bold dark:text-white">PaytmClone</h2>
+          <h2 className="text-3xl font-bold dark:text-white">Wallet Go</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">Simplifying Digital Payments</p>
         </div>
       </section>
@@ -122,7 +122,7 @@ const Home = () => {
       <footer className="bg-gray-800 text-white py-8 mt-auto">
         <div className="container mx-auto flex flex-wrap justify-between">
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-2">PaytmClone</h3>
+            <h3 className="text-lg font-semibold mb-2">Wallet Go</h3>
             <p>Your trusted digital payment partner.</p>
           </div>
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
@@ -176,7 +176,7 @@ const Home = () => {
           </div>
         </div>
         <div className="container mx-auto mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; 2023 PaytmClone. All rights reserved.</p>
+          <p>&copy; 2023 Wallet Go. All rights reserved.</p>
         </div>
       </footer>
     </div>
