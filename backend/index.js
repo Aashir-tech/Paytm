@@ -21,7 +21,7 @@ connectDB();
 
 app.get("/", (req, res) => {
   return res.json({
-    message: "Server is working in good condition",
+    message: "Server is working in good condition , hehe",
   });
 });
 
