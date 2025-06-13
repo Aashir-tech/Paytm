@@ -34,7 +34,7 @@ router.post('/signup' , async (req,res) => {
 
     console.log(user);
 
-    if(!user) {
+    if(user) {
         return res.status(411).json({
             message: "Email already taken / Incorrect inputs"
         })
