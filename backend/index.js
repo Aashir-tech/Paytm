@@ -8,7 +8,10 @@ require('dotenv').config()
 connectDB();
 
 //Always keep it abpve your main router
-app.use(cors())
+app.use(cors({
+    origin : 'https://walletgo.vercel.app'
+}))
+
 app.use(express.json());
 
 const mainRouter = require('./routes/index.js')
