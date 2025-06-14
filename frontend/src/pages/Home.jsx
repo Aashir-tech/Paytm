@@ -1,187 +1,257 @@
-import { useState } from "react"
-import { CreditCard, Smartphone, Wallet, Moon, Sun, Send } from "lucide-react"
-import { Link } from "react-router-dom"
-import { Dashboard } from "./Dashboard"
-import {Signin} from './Signin'
-import {Signup} from './Signup'
-import {SendMoney} from './SendMoney'
+import { useState } from "react";
+import {
+  CreditCard,
+  Smartphone,
+  Wallet,
+  Moon,
+  Sun,
+  Send,
+  Star,
+  Shield,
+  Zap,
+  Facebook,
+  Twitter,
+  Instagram,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import Logo from "../../src/assets/images/logo.png";
+import walletgo from "../../src/assets/images/walletlogo-light-sm.png";
+import walletgodark from "../../src/assets/images/walletlogo-dark-sm.png";
+import walletgofooterlogo from "../../src/assets/images/walletgofooterlogo.png";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-  }
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const services = [
+    {
+      icon: <Wallet className="w-12 h-12" />,
+      title: "Digital Wallet",
+      description:
+        "Securely store and manage your money with advanced encryption and biometric security.",
+    },
+    {
+      icon: <Smartphone className="w-12 h-12" />,
+      title: "Mobile Recharge",
+      description:
+        "Instant recharges for all mobile operators with exclusive cashback offers.",
+    },
+    {
+      icon: <CreditCard className="w-12 h-12" />,
+      title: "Bill Payments",
+      description:
+        "Pay all your utility bills hassle-free with automated reminders and scheduling.",
+    },
+    {
+      icon: <Send className="w-12 h-12" />,
+      title: "Money Transfer",
+      description:
+        "Send money instantly to anyone, anywhere with zero transaction fees.",
+    },
+    {
+      icon: <Shield className="w-12 h-12" />,
+      title: "Secure Transactions",
+      description:
+        "Bank-level security with 256-bit encryption and fraud protection.",
+    },
+    {
+      icon: <Zap className="w-12 h-12" />,
+      title: "Instant Processing",
+      description: "Lightning-fast transactions processed in under 3 seconds.",
+    },
+  ];
+
+  const partners = [
+    { name: "TechCorp", logo: "TC" },
+    { name: "FinanceHub", logo: "FH" },
+    { name: "PaySecure", logo: "PS" },
+    { name: "MoneyFlow", logo: "MF" },
+    { name: "CryptoBank", logo: "CB" },
+    { name: "DigitalPay", logo: "DP" },
+  ];
 
   return (
-    <div className={`flex flex-col min-h-screen ${isDarkMode ? "dark" : ""}`}>
+    <div
+      className={`flex flex-col font-poppins min-h-screen transition-all duration-500 ${
+        isDarkMode ? "dark " : "bg-[#F2EEEC]"
+      }`} 
+    >
       {/* Navbar */}
-      <nav className="bg-blue-600 dark:bg-gray-800 text-white p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold">Wallet Go</div>
-          <ul className="flex items-center space-x-4">
-            <li>
-              <a href="#" className="hover:text-blue-200">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-blue-200">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-blue-200">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-blue-200">
-                Contact
-              </a>
-            </li>
-            {/* <li>
-              <Link
-                to="/dashboard"
-                className="bg-white text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-full transition duration-300"
-              >
-                Dashboard
-              </Link>
-            </li> */}
-            <li>
-              <Link to="/signin" className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-full transition duration-300">
-                Login
-              </Link>
-            </li>
-            <li>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white"
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+
 
       {/* Hero Section */}
-      <section className="bg-blue-500 dark:bg-gray-700 text-white py-20">
-        <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">Welcome to Wallet Go</h1>
-          <p className="text-xl mb-8">Your One-Stop Solution for Digital Payments</p>
-          <div className="flex justify-center space-x-4">
-            <Link to="/signup" className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300 shadow-lg">
-              Get Started
-            </Link>
-            <Link to="/dashboard" className="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 shadow-lg flex items-center">
-              <Send size={20} className="mr-2" />
-              Send Money
-            </Link>
+      <section className="pt-20 min-h-[130vh] text-center sm:text-left sm:min-h-screen flex items-center bg-gradient-to-tr  dark:from-purple-900 dark:via-slate-800 dark:to-slate-900">
+        <div className="container mx-auto py-5 my-5">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mx-10">
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-4">
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                    Welcome to
+                  </span>
+                  <br />
+                  <span className="text-gray-800 dark:text-white">
+                    Wallet Go
+                  </span>
+                </h1>
+                <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Your One-Stop Solution for Digital Payments. Experience the
+                  future of finance with secure, instant, and seamless
+                  transactions.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/signup"
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl text-center"
+                >
+                  Get Started Free
+                </Link>
+                <Link
+                  to="/dashboard"
+                  className="bg-white dark:bg-slate-800 text-gray-800 dark:text-white border-2 border-gray-300 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
+                >
+                  <Send size={20} className="mr-2" />
+                  Send Money
+                </Link>
+              </div>
+
+              <div className="flex items-center space-x-8 pt-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-800 dark:text-white">
+                    1M+
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-400">
+                    Active Users
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-800 dark:text-white">
+                    99.9%
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-400">Uptime</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-800 dark:text-white">
+                    24/7
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-400">
+                    Support
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <img
+              src={Logo}
+              alt="Digital Wallet Illustration"
+              className="w-full h-auto rounded-3xl shadow-2xl"
+            />
+          </div>
+          {/* <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-20 blur-3xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-20 blur-3xl"></div> */}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-gradient-to-br bg-[#F2EEEC] dark:from-purple-900 dark:via-slate-800 dark:to-slate-900">
+        {/* dark:from-slate-900 dark:via-slate-800 dark:to-purple-900 */}
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+              Our Services
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Discover a comprehensive suite of financial services designed to
+              make your life easier and more secure.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group bg-gradient-to-br from-gray-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200/50 dark:border-slate-600/50"
+              >
+                <div className="text-blue-500 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {service.description}
+                </p>
+                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button className="text-blue-500 dark:text-blue-400 font-semibold hover:text-blue-600 dark:hover:text-blue-300">
+                    Learn More →
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-gray-100 dark:bg-gray-800">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-              <Wallet className="w-16 h-16 mx-auto mb-4 text-blue-600 dark:text-blue-400" />
-              <h3 className="text-xl font-semibold mb-2 dark:text-white">Digital Wallet</h3>
-              <p className="dark:text-gray-300">Securely store and manage your money digitally.</p>
+      {/* Partners Section */}
+      <section className="py-20 bg-[#F2EEEC] dark:bg-gradient-to-r dark:from-slate-800 dark:to-slate-900">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+              Trusted by Leading Brands
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Join thousands of companies that trust Wallet Go for their
+              financial needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 dark:border-slate-600/50"
+              >
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:from-purple-500 group-hover:to-blue-600 transition-all duration-300">
+                    {partner.logo}
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-800 dark:text-white">
+                    {partner.name}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <div className="flex items-center justify-center space-x-2 text-yellow-500 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 fill-current" />
+              ))}
             </div>
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-              <Smartphone className="w-16 h-16 mx-auto mb-4 text-blue-600 dark:text-blue-400" />
-              <h3 className="text-xl font-semibold mb-2 dark:text-white">Mobile Recharge</h3>
-              <p className="dark:text-gray-300">Quick and easy recharges for all mobile operators.</p>
-            </div>
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-              <CreditCard className="w-16 h-16 mx-auto mb-4 text-blue-600 dark:text-blue-400" />
-              <h3 className="text-xl font-semibold mb-2 dark:text-white">Bill Payments</h3>
-              <p className="dark:text-gray-300">Pay all your utility bills hassle-free.</p>
-            </div>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              "Wallet Go has transformed how we handle payments. Highly
+              recommended!"
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              - Sarah Johnson, CEO of TechCorp
+            </p>
           </div>
         </div>
       </section>
-
-      {/* Logo Section */}
-      <section className="py-16 dark:bg-gray-900">
-        <div className="container mx-auto text-center">
-          <svg className="w-32 h-32 mx-auto mb-4" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#00BAF2" />
-            <path d="M30 50 L70 50 M50 30 L50 70" stroke="white" strokeWidth="8" />
-          </svg>
-          <h2 className="text-3xl font-bold dark:text-white">Wallet Go</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Simplifying Digital Payments</p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 mt-auto">
-        <div className="container mx-auto flex flex-wrap justify-between">
-          <div className="w-full md:w-1/4 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-2">Wallet Go</h3>
-            <p>Your trusted digital payment partner.</p>
-          </div>
-          <div className="w-full md:w-1/4 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
-            <ul>
-              <li>
-                <a href="#" className="hover:text-blue-300">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-300">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-300">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="w-full md:w-1/4 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-2">Legal</h3>
-            <ul>
-              <li>
-                <a href="#" className="hover:text-blue-300">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-blue-300">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="w-full md:w-1/4">
-            <h3 className="text-lg font-semibold mb-2">Connect With Us</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-300">
-                Facebook
-              </a>
-              <a href="#" className="hover:text-blue-300">
-                Twitter
-              </a>
-              <a href="#" className="hover:text-blue-300">
-                Instagram
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="container mx-auto mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; 2023 Wallet Go. All rights reserved.</p>
-        </div>
-      </footer>
+            
+            {/* Footer */}
+      <Footer isDarkMode={isDarkMode} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;
