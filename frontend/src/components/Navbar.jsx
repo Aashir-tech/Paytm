@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import walletgo from "../../src/assets/images/walletlogo-light-sm.png";
 import walletgodark from "../../src/assets/images/walletlogo-dark-sm.png";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ isDarkMode, toggleTheme }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+
+    if (userId) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -51,12 +63,21 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
             {/* Right Side: Login + Theme Toggle + Hamburger */}
             <div className="flex items-center space-x-4">
-              <Link
-                to="/signin"
-                className="text-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Login
-              </Link>
+              {isLoggedIn ? (
+                <Link
+                  to="/dashboard"
+                  className="text-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Dashboard
+                </Link>
+              ) : (
+                <Link
+                  to="/signin"
+                  className="text-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Login
+                </Link>
+              )}
 
               <button
                 onClick={toggleTheme}
