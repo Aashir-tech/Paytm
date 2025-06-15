@@ -9,7 +9,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-[#F2EEEC] dark:bg-[#050D2A] dark:bg-gradient-to-l dark:from-slate-900 dark:via-slate-850 dark:to-purple-900">
+      <nav className="fixed top-0 w-full z-50 bg-[#F2EEEC] dark:bg-[#050D2A]">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -23,10 +23,30 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8 text-xl font-semibold">
-              <a href="/" className="nav-link">Home</a>
-              <a href="/service" className="nav-link">Services</a>
-              <a href="/about" className="nav-link">About</a>
-              <a href="/contact" className="nav-link">Contact</a>
+              <a
+                href="/"
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
+                Home
+              </a>
+              <a
+                href="/service"
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
+                Services
+              </a>
+              <a
+                href="/about"
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
+                About
+              </a>
+              <a
+                href="/contact"
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
+                Contact
+              </a>
             </div>
 
             {/* Right Side: Login + Theme Toggle + Hamburger */}
@@ -58,10 +78,18 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           {/* Mobile Dropdown Menu */}
           {menuOpen && (
             <div className="md:hidden mt-4 space-y-4 text-xl font-semibold text-center">
-              <a href="/" className="nav-link block">Home</a>
-              <a href="/service" className="nav-link block">Services</a>
-              <a href="/about" className="nav-link block">About</a>
-              <a href="/contact" className="nav-link block">Contact</a>
+              <a href="/" className="nav-link block">
+                Home
+              </a>
+              <a href="/service" className="nav-link block">
+                Services
+              </a>
+              <a href="/about" className="nav-link block">
+                About
+              </a>
+              <a href="/contact" className="nav-link block">
+                Contact
+              </a>
             </div>
           )}
         </div>
