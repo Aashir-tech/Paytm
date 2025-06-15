@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ isDarkMode, toggleTheme }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -17,7 +18,6 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
     }
   }, []);
 
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>

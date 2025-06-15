@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Eye, EyeOff, Mail, Lock, User, Phone, ArrowRight } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
@@ -15,6 +15,13 @@ const Signup = () => {
   const [error, setError] = useState("")
 
   const API_URL = import.meta.env.VITE_BACKEND_URL
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if(userId) {
+      navigate('/dashboard')
+    }
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
