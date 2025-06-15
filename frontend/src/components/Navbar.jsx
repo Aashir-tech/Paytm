@@ -78,16 +78,28 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           {/* Mobile Dropdown Menu */}
           {menuOpen && (
             <div className="md:hidden mt-4 space-y-4 text-xl font-semibold text-center">
-              <a href="/" className="nav-link block">
+              <a
+                href="/"
+                className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
                 Home
               </a>
-              <a href="/service" className="nav-link block">
+              <a
+                href="/service"
+                className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
                 Services
               </a>
-              <a href="/about" className="nav-link block">
+              <a
+                href="/about"
+                className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
                 About
               </a>
-              <a href="/contact" className="nav-link block">
+              <a
+                href="/contact"
+                className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
+              >
                 Contact
               </a>
             </div>
