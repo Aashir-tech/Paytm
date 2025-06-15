@@ -23,30 +23,30 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8 text-xl font-semibold">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 Home
-              </a>
-              <a
-                href="/service"
+              </Link>
+              <Link
+                to="/service"
                 className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 Services
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
+                to="/about"
                 className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 About
-              </a>
-              <a
-                href="/contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 Contact
-              </a>
+              </Link>
             </div>
 
             {/* Right Side: Login + Theme Toggle + Hamburger */}
@@ -78,30 +78,30 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           {/* Mobile Dropdown Menu */}
           {menuOpen && (
             <div className="md:hidden mt-4 space-y-4 text-xl font-semibold text-center">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 Home
-              </a>
-              <a
-                href="/service"
+              </Link>
+              <Link
+                to="/service"
                 className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 Services
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
+                to="/about"
                 className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 About
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 Contact
-              </a>
+              </Link>
             </div>
           )}
         </div>
